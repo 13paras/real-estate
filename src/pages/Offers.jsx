@@ -64,6 +64,7 @@ const Offers = () => {
 
       if (docSnap.empty) {
         setHasMore(false);
+        toast.success("All listings Fetched");
       }
       setLastListings(lastVisible);
       const listingData = [];
