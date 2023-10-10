@@ -43,7 +43,7 @@ This app is built with React + Vite, TailwindCSS, and Firebase. It uses Firebase
     ```
 
   ##  Demo
-You can see a live demo of this app https://real-estate-azure-omega.vercel.app/.
+You can see a live demo of this app <a href="https://real-estate-azure-omega.vercel.app/" target="_blank" rel="noreferrer">here</a>.
 
 ## License
 
