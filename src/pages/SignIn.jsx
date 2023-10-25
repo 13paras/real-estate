@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-hot-toast";
+import { Image } from "@nextui-org/react";
+import undraw from "../assets/undrawsvgL.svg";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -39,22 +41,19 @@ const SignIn = () => {
     }
   };
 
-  const image =
-    "https://img.freepik.com/free-vector/privacy-policy-concept-illustration_114360-7853.jpg?w=900&t=st=1682748846~exp=1682749446~hmac=5dd7f2aa6af24e1d429e398724c7f25612c19825369faf001eced722990a0913";
-
   return (
-    <main className=' bg-cream '>
+    <main className=''>
       <div className='mx-auto max-w-7xl'>
-        <h1 className='py-10 text-center text-4xl font-semibold text-deep_blue'>
+        <h1 className='py-10 text-center text-4xl font-bold text-cream'>
           Sign In
         </h1>
 
         <div className='flex flex-col items-center lg:flex-row'>
           <div className='mx-auto sm:w-[67%] md:w-[77%] lg:w-[50%]'>
-            <img
+            <Image
               loading='lazy'
               className='mx-auto w-[90%] rounded-xl shadow-xl'
-              src='https://img.freepik.com/premium-vector/password-locked-concept-with-padlock-vector_744112-496.jpg?w=900'
+              src={undraw}
               alt=''
             />
           </div>
@@ -63,12 +62,12 @@ const SignIn = () => {
           <div className='mx-auto pt-5 sm:w-[67%] md:w-[77%] lg:w-[50%] '>
             <form
               onSubmit={onSubmitHandler}
-              className='mx-8 mt-8 flex flex-col space-y-6 '
+              className='mx-8 mt-8 flex flex-col space-y-6 text-stone-400 '
             >
               <input
                 onChange={onChangeHandler}
                 id='email'
-                className='h-12 rounded text-lg text-gray-700'
+                className='h-12 rounded bg-zinc-800 text-lg '
                 type='email'
                 placeholder='Enter email...'
                 required
@@ -77,14 +76,14 @@ const SignIn = () => {
               <input
                 type='password'
                 onChange={onChangeHandler}
-                className='h-12 rounded text-lg text-gray-700'
+                className='h-12 rounded bg-zinc-800 text-lg'
                 required
                 id='password'
                 placeholder='Enter password...'
               />
 
               <div className='flex items-center justify-between'>
-                <p className='text-deep_blue'>
+                <p className='text-ston-300'>
                   Dont have an account?
                   <span className='cursor-pointer pl-1 font-semibold text-light_coral_red'>
                     <Link to='/sign-up'>Register</Link>

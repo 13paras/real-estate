@@ -24,7 +24,6 @@ const Category = () => {
   const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
-    console.log(params.categoryName);
     const fetchOfferListings = async () => {
       const listingRef = collection(db, "listings");
       const q = query(
@@ -45,7 +44,6 @@ const Category = () => {
       });
       setOfferListings(listings);
       setLoading(false);
-      console.log(offerListings);
     };
     fetchOfferListings();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -93,7 +91,7 @@ const Category = () => {
 
       <div className='mt-3'>
         {loading ? (
-          <div className='mb-7 mt-8 grid gap-7 px-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+          <div className='mb-7 mt-8 flex flex-wrap justify-center gap-3'>
             {Array.from({ length: 6 }).map((_, index) => (
               <CardSkeleton key={index} />
             ))}
@@ -108,7 +106,7 @@ const Category = () => {
                 <InfiniteLoader />
               </div>
             }
-            className='mb-7 mt-8 grid gap-7 px-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+            className='mb-7 mt-8 flex flex-wrap justify-center gap-3'
           >
             {offerListings.map((listing, index) => (
               <ListingItem

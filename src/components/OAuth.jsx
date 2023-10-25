@@ -38,7 +38,7 @@ const OAuth = () => {
     <div className='mb-6'>
       <button
         onClick={handleSignin}
-        className='flex w-full items-center justify-center rounded bg-red-500  py-2 text-lg font-semibold text-white hover:bg-red-600 active:scale-95'
+        className='flex w-full items-center justify-center rounded bg-gradient-to-r from-red-500 to-red-700  py-2 text-lg font-semibold text-white  active:scale-95'
       >
         <FcGoogle size={23} className='mr-2 rounded-full bg-white' />
         Continue with google

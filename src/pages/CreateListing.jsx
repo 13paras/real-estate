@@ -167,11 +167,14 @@ const CreateListing = () => {
   }
 
   return (
-    <section className='bg-white transition-all duration-300 ease-in-out'>
-      <h1 className=' pt-8 text-center text-4xl font-semibold'>
+    <section className=' duration-300 ease-in-out transition-all'>
+      <h1 className=' pt-8 text-center text-4xl font-semibold text-cream'>
         Create Listing
       </h1>
-      <form onSubmit={submitListing} className='mx-auto max-w-md py-10'>
+      <form
+        onSubmit={submitListing}
+        className='mx-auto max-w-md py-10 text-stone-300'
+      >
         {/* sell/rent */}
         <p className='text-xl font-semibold'>Sell / Rent</p>
         <div className='mt-3 flex space-x-3'>
@@ -180,8 +183,8 @@ const CreateListing = () => {
             type='button'
             id='type'
             value='sale'
-            className={`w-full rounded-md py-[12px] text-sm font-semibold uppercase shadow-xl transition-all duration-200 ease-in-out active:scale-90 ${
-              type === "sale" && "bg-deep_blue text-cream"
+            className={`w-full rounded-md bg-zinc-800 py-[12px] text-sm font-semibold uppercase shadow-xl duration-200 ease-in-out transition-all active:scale-90 ${
+              type === "sale" && "bg-sky-500 text-cream"
             } `}
           >
             sell
@@ -191,8 +194,10 @@ const CreateListing = () => {
             type='button'
             id='type'
             value='rent'
-            className={`w-full rounded-md bg-deep_blue py-[12px] text-sm font-semibold uppercase text-cream shadow-xl transition-all duration-200 ease-in-out active:scale-90 ${
-              type === "sale" && "bg-white text-deep_blue"
+            className={`w-full rounded-md  py-[12px] text-sm font-semibold uppercase shadow-xl duration-200 ease-in-out transition-all active:scale-90 ${
+              type === "sale"
+                ? "bg-zinc-800 text-stone-400"
+                : "bg-sky-500 text-cream"
             }`}
           >
             rent
@@ -206,7 +211,7 @@ const CreateListing = () => {
           id='name'
           onChange={onChangeHandler}
           value={name}
-          className='mt-2 h-12 w-full rounded-md border-gray-300 text-lg text-deep_blue transition-all duration-200 ease-in-out'
+          className='mt-2 h-12 w-full rounded-md border-none bg-zinc-800 text-lg text-stone-400 duration-200 ease-in-out transition-all'
           placeholder='Name...'
           minLength='6'
           maxLength={32}
@@ -222,7 +227,7 @@ const CreateListing = () => {
               type='number'
               onChange={onChangeHandler}
               value={bedrooms}
-              className='mt-2 w-[100px] rounded border-gray-300 text-center text-xl'
+              className='mt-2 w-[100px] rounded border-none bg-zinc-800 text-center text-xl text-stone-400'
               min={1}
               max={50}
               required
@@ -235,7 +240,7 @@ const CreateListing = () => {
               type='number'
               onChange={onChangeHandler}
               value={bathrooms}
-              className='mt-2 w-[100px] rounded border-gray-300 text-center text-xl'
+              className='mt-2 w-[100px] rounded border-none bg-zinc-800 text-center text-xl text-stone-400'
               min={1}
               max={50}
               required
@@ -251,8 +256,8 @@ const CreateListing = () => {
             type='button'
             id='parking'
             value={true}
-            className={`w-full rounded-md py-[12px] text-sm font-semibold uppercase shadow-xl transition-all duration-200 ease-in-out active:scale-90 ${
-              parking && "bg-deep_blue text-cream"
+            className={`w-full rounded-md py-[12px] text-sm font-semibold uppercase shadow-xl duration-200 ease-in-out transition-all active:scale-90 ${
+              parking ? "bg-sky-500 text-cream" : "bg-zinc-800 text-stone-400"
             } `}
           >
             Yes
@@ -262,8 +267,8 @@ const CreateListing = () => {
             type='button'
             id='parking'
             value={false}
-            className={`w-full rounded-md py-[12px] text-sm font-semibold uppercase shadow-xl transition-all duration-200 ease-in-out active:scale-90 ${
-              !parking && "bg-deep_blue text-cream"
+            className={`w-full rounded-md py-[12px] text-sm font-semibold uppercase shadow-xl duration-200 ease-in-out transition-all active:scale-90 ${
+              !parking ? "bg-sky-500 text-cream" : "bg-zinc-800 text-stone-400"
             } `}
           >
             No
@@ -278,8 +283,8 @@ const CreateListing = () => {
             type='button'
             id='furnished'
             value={true}
-            className={`w-full rounded-md py-[12px] text-sm font-semibold uppercase shadow-xl transition-all duration-200 ease-in-out active:scale-90 ${
-              furnished ? "bg-deep_blue text-cream" : "bg-white text-deep_blue"
+            className={`w-full rounded-md py-[12px] text-sm font-semibold uppercase shadow-xl duration-200 ease-in-out transition-all active:scale-90 ${
+              furnished ? "bg-sky-500 text-cream" : "bg-zinc-800 text-stone-400"
             } `}
           >
             Yes
@@ -289,8 +294,10 @@ const CreateListing = () => {
             type='button'
             id='furnished'
             value={false}
-            className={`w-full rounded-md bg-deep_blue py-[12px] text-sm font-semibold uppercase text-cream shadow-xl transition-all duration-200 ease-in-out active:scale-90 ${
-              !furnished ? "bg-deep_blue text-cream" : "bg-white text-deep_blue"
+            className={`w-full rounded-md py-[12px] text-sm font-semibold uppercase shadow-xl duration-200 ease-in-out transition-all active:scale-90 ${
+              !furnished
+                ? "bg-sky-500 text-cream"
+                : "bg-zinc-800 text-stone-400"
             } `}
           >
             No
@@ -302,7 +309,7 @@ const CreateListing = () => {
         <textarea
           onChange={onChangeHandler}
           value={address}
-          className='mt-2 w-full rounded-md border-gray-300 text-lg text-deep_blue transition-all duration-200 ease-in-out'
+          className='mt-2 w-full rounded-md border-none bg-zinc-800 text-lg text-stone-400  duration-200 ease-in-out transition-all'
           placeholder='Address...'
           id='address'
           rows='2'
@@ -313,7 +320,7 @@ const CreateListing = () => {
         <textarea
           onChange={onChangeHandler}
           value={description}
-          className='mt-2 w-full rounded-md border-gray-300 text-lg text-deep_blue transition-all duration-200 ease-in-out'
+          className='mt-2 w-full rounded-md border-none bg-zinc-800 text-lg text-stone-400  duration-200 ease-in-out transition-all'
           placeholder='Description...'
           id='description'
           rows='2'
@@ -327,8 +334,8 @@ const CreateListing = () => {
             type='button'
             id='offer'
             value={true}
-            className={`w-full rounded-md py-[12px] text-sm font-semibold uppercase shadow-xl transition-all duration-200 ease-in-out active:scale-90 ${
-              offer && "bg-deep_blue text-cream"
+            className={`w-full rounded-md py-[12px] text-sm font-semibold uppercase shadow-xl duration-200 ease-in-out transition-all active:scale-90 ${
+              offer ? "bg-sky-500 text-cream" : "bg-zinc-800 text-stone-400"
             } `}
           >
             Yes
@@ -338,8 +345,8 @@ const CreateListing = () => {
             type='button'
             id='offer'
             value={false}
-            className={`w-full rounded-md bg-deep_blue py-[12px] text-sm font-semibold uppercase text-cream shadow-xl transition-all duration-200 ease-in-out active:scale-90 ${
-              !offer ? "bg-deep_blue text-cream" : "bg-white text-deep_blue"
+            className={`w-full rounded-md py-[12px] text-sm font-semibold uppercase text-cream shadow-xl duration-200 ease-in-out transition-all active:scale-90 ${
+              !offer ? "bg-sky-500 text-cream" : "bg-zinc-800 text-stone-400"
             } `}
           >
             No
@@ -354,7 +361,7 @@ const CreateListing = () => {
             onChange={onChangeHandler}
             value={regularPrice}
             type='number'
-            className='mt-1 w-full rounded border-gray-300 text-center text-xl'
+            className='mt-1 w-full rounded border-none bg-zinc-800 text-center text-xl text-stone-400'
             min='50'
             max='400000000'
             required
@@ -372,7 +379,7 @@ const CreateListing = () => {
                 onChange={onChangeHandler}
                 value={discountedPrice}
                 type='number'
-                className='mt-1 w-[50%] rounded border-gray-300 text-center text-xl'
+                className='mt-1 w-[50%] rounded border-none bg-zinc-800 text-center text-xl text-stone-400'
                 min='50'
                 max='400000000'
                 required={false}
@@ -384,7 +391,7 @@ const CreateListing = () => {
         {/* Images */}
         <div>
           <p className={styles.heading}>Images</p>
-          <span className='text-sm text-gray-600'>
+          <span className='text-sm text-stone-500'>
             The first image will be the cover (max 6).
           </span>
           <input
@@ -394,7 +401,7 @@ const CreateListing = () => {
             accept='.jpg, .png, .jpeg'
             multiple
             required
-            className='mt-2 w-full rounded border border-gray-300 bg-white px-3 py-3 transition duration-150 ease-in-out'
+            className='mt-2 w-full rounded border border-none bg-zinc-800 px-3 py-3 text-stone-400 duration-150 ease-in-out transition'
           />
         </div>
 
@@ -402,7 +409,7 @@ const CreateListing = () => {
         <div className=' my-6 mt-10'>
           <button
             type='submit'
-            className='flex w-full items-center justify-center  rounded bg-blue-600 py-3 text-center font-semibold uppercase text-white hover:bg-blue-700 active:scale-95'
+            className='flex w-full items-center justify-center  rounded bg-gradient-to-r from-red-500 to-red-700 py-3 text-center font-semibold uppercase text-white  active:scale-95'
           >
             create listing
           </button>

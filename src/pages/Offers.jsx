@@ -82,14 +82,14 @@ const Offers = () => {
     }
   };
   return (
-    <div>
+    <div className='mx-auto max-w-[1250px]'>
       <h1 className='mt-16 text-center text-4xl font-bold uppercase text-cream'>
         offers
       </h1>
 
       <div className='mt-3'>
         {loading ? (
-          <div className='mb-7 mt-8 grid gap-7 px-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+          <div className='mb-7 flex flex-wrap justify-center gap-3'>
             {Array.from({ length: 6 }).map((_, index) => (
               <CardSkeleton key={index} />
             ))}
@@ -100,7 +100,7 @@ const Offers = () => {
             next={fetchMoreListings}
             hasMore={hasMore}
             loader={<InfiniteLoader />}
-            className='mb-7 mt-8 grid gap-7 px-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+            className='mb-7 mt-8 flex flex-wrap justify-center gap-3'
           >
             {offerListings.map((listing, index) => (
               <ListingItem
