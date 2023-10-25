@@ -31,10 +31,10 @@ const Header = () => {
 
   return (
     <header className=' sticky top-0 z-40 flex items-center justify-between bg-deep_blue px-4 py-3 shadow-lg'>
-      <h1 className='font-serif text-3xl font-semibold text-light_coral_red'>
+      <h1 className='font-serif text-xl font-bold text-light_coral_red sm:text-3xl'>
         <Link to='/'>Real Estate</Link>
       </h1>
-      <ul className='space-x-6 text-lg font-semibold text-cream transition duration-150 ease-in-out'>
+      <nav className='space-x-6 text-xs font-semibold text-cream duration-150 ease-in-out transition sm:text-lg'>
         <Link
           to='/'
           className={`${
@@ -63,7 +63,7 @@ const Header = () => {
         >
           {pageState}
         </Link>
-      </ul>
+      </nav>
     </header>
   );
 };

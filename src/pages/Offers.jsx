@@ -9,7 +9,6 @@ import {
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../config/Firebase";
-import Spinner from "../components/Spinner";
 import { toast } from "react-hot-toast";
 import ListingItem from "../components/ListingItem";
 import CardSkeleton from "../components/skeleton/CardSkeleton";

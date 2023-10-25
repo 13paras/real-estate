@@ -1,18 +1,20 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Home from "./pages/Home";
 import Header from "./components/Header";
-import SignIn from "./pages/SignIn";
-import Profile from "./pages/Profile";
-import Offers from "./pages/Offers";
 import ForgotPassword from "./pages/ForgotPassword";
-import SignUp from "./pages/SignUp";
 import { Toaster } from "react-hot-toast";
 import PrivateRoute from "./components/PrivateRoute";
-import CreateListing from "./pages/CreateListing";
-import Listing from "./pages/Listing";
-import EditListing from "./pages/EditListing";
-import Category from "./pages/Category";
-import PageNotFound from "./pages/PageNotFound";
+import {
+  Home,
+  Offers,
+  Profile,
+  CreateListing,
+  Category,
+  Listing,
+  EditListing,
+  SignIn,
+  SignUp,
+  PageNotFound,
+} from "./pages";
 
 const App = () => {
   return (

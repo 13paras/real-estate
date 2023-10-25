@@ -1,42 +1,14 @@
-import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Spinner from "../components/Spinner";
-import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
-import { db } from "../config/Firebase";
 import { Link } from "react-router-dom";
 import SwiperCore, { EffectFade, Navigation, Pagination } from "swiper";
+import { useFetchListings } from "../hooks/useFetchListings";
 
 const Slider = () => {
-  const [listings, setListings] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [listings, setListings] = useState(null);
+  // const [loading, setLoading] = useState(true);
+  const { listings } = useFetchListings({ listingLimit: 6 });
   SwiperCore.use([Navigation, Pagination, EffectFade]);
 
-  useEffect(() => {
-    const fetchListing = async () => {
-      try {
-        const listingRef = collection(db, "listings");
-        const q = query(listingRef, orderBy("timestamp", "desc"), limit(6));
-        const querySnap = await getDocs(q);
-        const listingData = [];
-        querySnap.forEach((doc) => {
-          return listingData.push({
-            id: doc.id,
-            data: doc.data(),
-          });
-        });
-        setListings(listingData);
-        // console.log(listings)
-        setLoading(false);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchListing();
-  }, []);
-
-  if (loading) {
-    return <Spinner />;
-  }
   return (
     <Swiper
       speed={500}
@@ -49,9 +21,9 @@ const Slider = () => {
       pagination={{ clickable: true }}
     >
       {listings &&
-        listings.map((listing, index) => (
+        listings.map((listing) => (
           <>
-            <SwiperSlide key={index}>
+            <SwiperSlide key={listing.id}>
               <Link to={`/category/${listing.data.type}/${listing.id}`}>
                 <div
                   style={{

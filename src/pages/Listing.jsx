@@ -76,8 +76,8 @@ const Listing = () => {
 
       {/* Listing Details */}
       <div className=' pb-10 pt-1 '>
-        <div className='mx-auto mt-7 max-w-[70%] space-y-4  rounded-md p-3 px-4'>
-          <h1 className='text-3xl font-bold text-stone-300'>
+        <div className='mx-auto mt-7 max-w-[95%] space-y-4 rounded-md  p-3 px-4 sm:max-w-[70%]'>
+          <h1 className='text-xl font-bold text-stone-300 sm:text-3xl'>
             {" "}
             {listing.name} - $
             {listing.offer
@@ -89,16 +89,16 @@ const Listing = () => {
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             {listing.type === "rent" && " / month"}
           </h1>
-          <p className='flex items-center text-lg font-semibold text-stone-400'>
+          <p className='flex items-center text-xs font-semibold text-stone-400 sm:text-lg'>
             {" "}
             <MdLocationOn size={25} color='green' /> {listing.address}{" "}
           </p>
           <ul className='capitalise flex items-center  space-x-5 font-semibold'>
-            <li className='cursor-pointer rounded-lg bg-gradient-to-r from-red-500 to-red-700 px-12 py-1 text-white'>
+            <li className='cursor-pointer rounded-lg bg-gradient-to-r from-red-500 to-red-700 px-8 py-1 text-xs text-white sm:px-12 sm:text-base'>
               For rent
             </li>
             {listing.offer && (
-              <li className='cursor-pointer rounded-lg bg-gradient-to-r from-green-600 to-green-800 px-12 py-1 text-white  '>
+              <li className='cursor-pointer rounded-lg bg-gradient-to-r from-green-600 to-green-800 px-8 py-1 text-xs text-white sm:px-12 sm:text-base'>
                 Discount $
                 {(listing.regularPrice - listing.discountedPrice)
                   .toString()
@@ -111,7 +111,7 @@ const Listing = () => {
             <strong className='text-stone-300'>Description -</strong>{" "}
             {listing.description}
           </p>
-          <ul className='flex items-center space-x-7 pb-2 pl-1 font-semibold capitalize text-stone-400'>
+          <ul className='flex items-center space-x-7 pb-2 pl-1 text-xs font-semibold capitalize text-stone-400 sm:text-base'>
             <li className=''>
               <FaBed size={23} color='#71717a' /> {listing.bedrooms}{" "}
               {listing.bedrooms > 1 ? "Bedrooms" : "Bedroom"}
